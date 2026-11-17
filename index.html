@@ -8,86 +8,124 @@
 <meta property="og:title" content="Raya's Canvas Studio">
 <meta property="og:description" content="Hand-drawn art, printed on tees and hoodies.">
 <meta property="og:image" content="https://i.etsystatic.com/69044485/r/il/2bbbe2/8867458236/il_600x600.8867458236_kcjf.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1d2b4f;--cream:#fbf3e0;--orange:#f28c28;--lime:#b5e61d;--pink:#ff8fb1;--ink:#1d2b4f}
+:root{--navy:#1d2b4f;--cream:#fbf3e0;--orange:#f28c28;--lime:#b5e61d;--pink:#ff8fb1;--sky:#cfe9ff;--ink:#1d2b4f}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55}
+body{font-family:"Fredoka","Trebuchet MS","Segoe UI",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.55;font-size:17px}
 a{color:inherit}
 .wrap{max-width:1040px;margin:0 auto;padding:0 20px}
-header{background:var(--navy);color:var(--cream);text-align:center;padding:56px 20px 64px;position:relative;overflow:hidden}
-header .stars{position:absolute;inset:0;pointer-events:none;opacity:.5}
-.badge{display:inline-block;font-weight:800;letter-spacing:.04em;line-height:1}
-.badge .raya{font-size:clamp(40px,9vw,72px);color:var(--cream);display:block}
-.badge .canvas{font-size:clamp(34px,8vw,60px);color:var(--orange);display:block;margin-top:4px}
-.badge .studio{display:inline-block;margin-top:12px;background:var(--lime);color:var(--navy);font-size:clamp(14px,3vw,20px);padding:5px 18px;border-radius:999px;letter-spacing:.2em}
+header{background:var(--navy);color:var(--cream);text-align:center;padding:56px 20px 90px;position:relative;overflow:hidden}
+.sky{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;color:var(--cream);animation:twinkle 3s ease-in-out infinite;opacity:.8}
+.star.pink{color:var(--pink)}
+.star.lime{color:var(--lime)}
+@keyframes twinkle{0%,100%{transform:scale(.7) rotate(0);opacity:.35}50%{transform:scale(1.15) rotate(20deg);opacity:1}}
+.cloud{position:absolute;width:120px;opacity:.9;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateX(-14px)}to{transform:translateX(14px)}}
+.badge{position:relative;display:inline-block;font-weight:700;line-height:1;animation:pop .8s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{from{transform:scale(.6) rotate(-6deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
+.badge .raya{font-size:clamp(46px,10vw,80px);color:var(--cream);display:block;letter-spacing:.03em}
+.badge .canvas{font-size:clamp(38px,9vw,66px);color:var(--orange);display:block;margin-top:2px;letter-spacing:.03em}
+.badge .studio{display:inline-block;margin-top:12px;background:var(--lime);color:var(--navy);font-size:clamp(14px,3vw,20px);padding:5px 20px;border-radius:999px;letter-spacing:.22em;transform:rotate(-2deg)}
 .squig{display:block;margin:14px auto 0}
-.tag{margin-top:22px;font-size:clamp(17px,3.4vw,22px);color:var(--cream)}
-.btn{display:inline-block;background:var(--orange);color:var(--navy);font-weight:800;text-decoration:none;padding:14px 28px;border-radius:999px;border:3px solid var(--navy);transition:transform .15s}
-header .btn{margin-top:26px;border-color:var(--cream)}
-.btn:hover,.btn:focus-visible{transform:translateY(-2px)}
-section{padding:56px 0}
-h2{font-size:clamp(26px,5vw,36px);margin-bottom:8px}
-.sub{margin-bottom:28px;opacity:.8}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
-.card{background:#fff;border:3px solid var(--navy);border-radius:18px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
-.card:hover,.card:focus-visible{transform:translateY(-3px);box-shadow:6px 6px 0 var(--pink)}
-.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#eee}
-.card .meta{padding:12px 14px 16px}
-.card .name{font-weight:800}
-.card .kind{font-size:14px;opacity:.75}
-.card .price{margin-top:6px;font-weight:800;color:var(--orange)}
-.story{background:var(--navy);color:var(--cream)}
-.story .wrap{max-width:720px}
-.story p{margin-top:14px;font-size:18px}
-.pill{display:inline-block;background:var(--lime);color:var(--navy);font-weight:800;padding:3px 14px;border-radius:999px;font-size:14px;margin-bottom:14px}
-.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:8px}
-.how div{background:#fff;border:3px solid var(--navy);border-radius:18px;padding:18px}
-.how b{display:block;margin-bottom:4px}
-.cta{text-align:center}
-footer{background:var(--navy);color:var(--cream);text-align:center;padding:28px 20px;font-size:14px}
+.tag{position:relative;margin-top:20px;font-size:clamp(18px,3.6vw,24px);color:var(--cream)}
+.btn{position:relative;display:inline-block;background:var(--orange);color:var(--navy);font-weight:700;font-size:18px;text-decoration:none;padding:14px 30px;border-radius:999px;border:3px solid var(--navy);box-shadow:0 5px 0 var(--navy);transition:transform .15s,box-shadow .15s}
+header .btn{margin-top:26px;border-color:var(--cream);box-shadow:0 5px 0 var(--pink)}
+.btn:hover,.btn:focus-visible{transform:translateY(-3px) rotate(-1.5deg);box-shadow:0 8px 0 var(--pink)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--pink)}
+.wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:50px;display:block}
+section{padding:44px 0}
+h2{font-size:clamp(28px,5.4vw,40px);margin-bottom:6px;font-weight:700}
+.sub{margin-bottom:30px;opacity:.85}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:22px}
+.card{position:relative;background:#fff;border:3px solid var(--navy);border-radius:24px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;box-shadow:0 5px 0 var(--navy);transition:transform .18s,box-shadow .18s}
+.card:nth-child(odd){transform:rotate(-1.4deg)}
+.card:nth-child(even){transform:rotate(1.2deg)}
+.card:hover,.card:focus-visible{transform:translateY(-6px) rotate(0) scale(1.02);box-shadow:0 11px 0 var(--pink)}
+.card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--sky)}
+.card .meta{padding:12px 16px 18px}
+.card .name{font-weight:700;font-size:19px;line-height:1.2}
+.card .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+.kind{font-size:14px;font-weight:600;background:var(--sky);color:var(--navy);padding:2px 12px;border-radius:999px}
+.price{font-weight:700;background:var(--orange);color:var(--navy);padding:2px 12px;border-radius:999px}
+.card .heart{position:absolute;top:10px;right:10px;background:var(--cream);border:2px solid var(--navy);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:16px;color:var(--pink);transition:transform .2s}
+.card:hover .heart{transform:scale(1.25) rotate(12deg)}
+.story{position:relative;background:var(--navy);color:var(--cream);padding:70px 0}
+.story::before,.story::after{content:"";position:absolute;left:0;right:0;height:30px;background:radial-gradient(circle at 15px 0,var(--cream) 14px,transparent 15px) 0 0/30px 30px repeat-x}
+.story::before{top:-1px}
+.story::after{bottom:-1px;transform:scaleY(-1)}
+.story .wrap{max-width:720px;text-align:center}
+.story p{margin-top:14px;font-size:20px}
+.pill{display:inline-block;background:var(--lime);color:var(--navy);font-weight:700;padding:3px 16px;border-radius:999px;font-size:15px;margin-bottom:14px;transform:rotate(-3deg)}
+.story .squig{margin-top:10px}
+.how{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:10px}
+.how div{background:#fff;border:3px solid var(--navy);border-radius:24px;padding:22px 20px 20px;box-shadow:0 5px 0 var(--navy);position:relative}
+.how b{display:block;margin:8px 0 4px;font-size:19px}
+.num{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:3px solid var(--navy);font-weight:700;font-size:20px}
+.how div:nth-child(1) .num{background:var(--lime)}
+.how div:nth-child(2) .num{background:var(--pink)}
+.how div:nth-child(3) .num{background:var(--orange)}
+.cta{text-align:center;padding-bottom:70px}
+footer{background:var(--navy);color:var(--cream);text-align:center;padding:30px 20px;font-size:15px}
 footer a{color:var(--lime)}
-@media (max-width:420px){.grid{grid-template-columns:repeat(2,1fr);gap:12px}.card .meta{padding:10px}}
+footer .heart{color:var(--pink)}
+@media (max-width:420px){.grid{grid-template-columns:repeat(2,1fr);gap:14px}.card .meta{padding:10px 10px 14px}.card .name{font-size:16px}.card .row{flex-wrap:wrap}.kind,.price{font-size:13px}.cloud{width:80px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.card:nth-child(odd),.card:nth-child(even){transform:none}}
 </style>
 </head>
 <body>
 <header>
-<svg class="stars" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="#fbf3e0"><circle cx="60" cy="60" r="3"/><circle cx="180" cy="320" r="2.5"/><circle cx="700" cy="80" r="3"/><circle cx="640" cy="330" r="2"/><circle cx="350" cy="40" r="2"/><circle cx="470" cy="360" r="3"/></g><g fill="#ff8fb1"><circle cx="110" cy="190" r="4"/><circle cx="740" cy="210" r="4"/></g></svg>
-<div class="badge" style="position:relative"><span class="raya">RAYA'S</span><span class="canvas">CANVAS</span><span class="studio">STUDIO</span>
-<svg class="squig" width="140" height="18" viewBox="0 0 140 18" aria-hidden="true"><path d="M4 9 Q 19 -2 34 9 T 64 9 T 94 9 T 124 9" fill="none" stroke="#ff8fb1" stroke-width="5" stroke-linecap="round"/></svg></div>
+<div class="sky" aria-hidden="true">
+<svg class="star" style="left:8%;top:14%;width:18px" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+<svg class="star pink" style="left:20%;top:62%;width:14px;animation-delay:.8s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+<svg class="star lime" style="left:86%;top:20%;width:16px;animation-delay:1.4s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+<svg class="star" style="left:92%;top:58%;width:20px;animation-delay:2s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+<svg class="star pink" style="left:70%;top:8%;width:12px;animation-delay:.4s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+<svg class="star" style="left:34%;top:10%;width:12px;animation-delay:1.1s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/></svg>
+<svg class="cloud" style="left:3%;top:46%" viewBox="0 0 120 60"><path d="M25 52c-12 0-20-7-20-16s8-16 18-15c3-10 13-17 25-17 14 0 24 8 27 19 14-1 25 6 25 15s-8 14-18 14z" fill="#fbf3e0"/></svg>
+<svg class="cloud" style="right:2%;top:30%;animation-delay:3s" viewBox="0 0 120 60"><path d="M25 52c-12 0-20-7-20-16s8-16 18-15c3-10 13-17 25-17 14 0 24 8 27 19 14-1 25 6 25 15s-8 14-18 14z" fill="#cfe9ff"/></svg>
+</div>
+<div class="badge"><span class="raya">RAYA'S</span><span class="canvas">CANVAS</span><span class="studio">STUDIO</span>
+<svg class="squig" width="150" height="20" viewBox="0 0 150 20" aria-hidden="true"><path d="M4 10 Q 20 -2 36 10 T 68 10 T 100 10 T 132 10" fill="none" stroke="#ff8fb1" stroke-width="5" stroke-linecap="round"/></svg></div>
 <p class="tag">Hand-drawn art, printed on tees and hoodies</p>
-<a class="btn" href="https://www.etsy.com/shop/RayasCanvasStudio" rel="noopener">Shop on Etsy</a>
+<a class="btn" href="https://www.etsy.com/shop/RayasCanvasStudio" rel="noopener">Shop on Etsy &rarr;</a>
+<svg class="wave" viewBox="0 0 1440 50" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 Q 90 0 180 30 T 360 30 T 540 30 T 720 30 T 900 30 T 1080 30 T 1260 30 T 1440 30 V50 H0z" fill="#fbf3e0"/></svg>
 </header>
 <section id="shop"><div class="wrap">
-<h2>The designs</h2>
+<h2>The designs &#10024;</h2>
 <p class="sub">Every piece starts as an original hand drawing. Tap any one to see it on Etsy.</p>
 <div class="grid">
-<a class="card" href="https://www.etsy.com/listing/4618357863" rel="noopener"><img loading="lazy" alt="Trick or Treat pumpkin girl t-shirt" src="https://i.etsystatic.com/69044485/r/il/2bbbe2/8867458236/il_600x600.8867458236_kcjf.jpg"><div class="meta"><div class="name">Trick or Treat</div><div class="kind">Pumpkin girl tee</div><div class="price">$24</div></div></a>
-<a class="card" href="https://www.etsy.com/listing/4618357383" rel="noopener"><img loading="lazy" alt="Trick or Treat pumpkin girl hoodie" src="https://i.etsystatic.com/69044485/r/il/79d55a/8915230795/il_600x600.8915230795_6f2o.jpg"><div class="meta"><div class="name">Trick or Treat</div><div class="kind">Pumpkin girl hoodie</div><div class="price">$44</div></div></a>
-<a class="card" href="https://www.etsy.com/listing/4613809670" rel="noopener"><img loading="lazy" alt="Daisy the one-eyed flower t-shirt" src="https://i.etsystatic.com/69044485/r/il/7210d0/8829492704/il_600x600.8829492704_l6pv.jpg"><div class="meta"><div class="name">Daisy the Flower</div><div class="kind">Tee</div><div class="price">$24</div></div></a>
-<a class="card" href="https://www.etsy.com/listing/4613794933" rel="noopener"><img loading="lazy" alt="Daisy the one-eyed flower hoodie" src="https://i.etsystatic.com/69044485/r/il/476a65/8829496286/il_600x600.8829496286_9r97.jpg"><div class="meta"><div class="name">Daisy the Flower</div><div class="kind">Hoodie</div><div class="price">$44</div></div></a>
-<a class="card" href="https://www.etsy.com/listing/4613742550" rel="noopener"><img loading="lazy" alt="Orange fanged cat t-shirt" src="https://i.etsystatic.com/69044485/r/il/6696c9/8828919474/il_600x600.8828919474_p19o.jpg"><div class="meta"><div class="name">Orange Fanged Cat</div><div class="kind">Tee</div><div class="price">$24</div></div></a>
-<a class="card" href="https://www.etsy.com/listing/4613728699" rel="noopener"><img loading="lazy" alt="Orange fanged cat hoodie" src="https://i.etsystatic.com/69044485/r/il/0f73e7/8828928248/il_600x600.8828928248_i9d9.jpg"><div class="meta"><div class="name">Orange Fanged Cat</div><div class="kind">Hoodie</div><div class="price">$44</div></div></a>
-<a class="card" href="https://www.etsy.com/listing/4613727015" rel="noopener"><img loading="lazy" alt="Girl on a cloud t-shirt" src="https://i.etsystatic.com/69044485/r/il/e78001/8876718269/il_600x600.8876718269_6a27.jpg"><div class="meta"><div class="name">Girl on a Cloud</div><div class="kind">Tee</div><div class="price">$24</div></div></a>
-<a class="card" href="https://www.etsy.com/listing/4613728303" rel="noopener"><img loading="lazy" alt="Girl on a cloud hoodie" src="https://i.etsystatic.com/69044485/r/il/c16226/8828924622/il_600x600.8828924622_azat.jpg"><div class="meta"><div class="name">Girl on a Cloud</div><div class="kind">Hoodie</div><div class="price">$44</div></div></a>
-<a class="card" href="https://www.etsy.com/listing/4613726293" rel="noopener"><img loading="lazy" alt="Striped sleepy dog t-shirt" src="https://i.etsystatic.com/69044485/r/il/193c95/8876712829/il_600x600.8876712829_6mkn.jpg"><div class="meta"><div class="name">Striped Sleepy Dog</div><div class="kind">Tee</div><div class="price">$24</div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4618357863" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Trick or Treat pumpkin girl t-shirt" src="https://i.etsystatic.com/69044485/r/il/2bbbe2/8867458236/il_600x600.8867458236_kcjf.jpg"><div class="meta"><div class="name">Trick or Treat</div><div class="row"><span class="kind">Tee</span><span class="price">$24</span></div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4618357383" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Trick or Treat pumpkin girl hoodie" src="https://i.etsystatic.com/69044485/r/il/79d55a/8915230795/il_600x600.8915230795_6f2o.jpg"><div class="meta"><div class="name">Trick or Treat</div><div class="row"><span class="kind">Hoodie</span><span class="price">$44</span></div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4613809670" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Daisy the one-eyed flower t-shirt" src="https://i.etsystatic.com/69044485/r/il/7210d0/8829492704/il_600x600.8829492704_l6pv.jpg"><div class="meta"><div class="name">Daisy the Flower</div><div class="row"><span class="kind">Tee</span><span class="price">$24</span></div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4613794933" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Daisy the one-eyed flower hoodie" src="https://i.etsystatic.com/69044485/r/il/476a65/8829496286/il_600x600.8829496286_9r97.jpg"><div class="meta"><div class="name">Daisy the Flower</div><div class="row"><span class="kind">Hoodie</span><span class="price">$44</span></div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4613742550" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Orange fanged cat t-shirt" src="https://i.etsystatic.com/69044485/r/il/6696c9/8828919474/il_600x600.8828919474_p19o.jpg"><div class="meta"><div class="name">Orange Fanged Cat</div><div class="row"><span class="kind">Tee</span><span class="price">$24</span></div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4613728699" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Orange fanged cat hoodie" src="https://i.etsystatic.com/69044485/r/il/0f73e7/8828928248/il_600x600.8828928248_i9d9.jpg"><div class="meta"><div class="name">Orange Fanged Cat</div><div class="row"><span class="kind">Hoodie</span><span class="price">$44</span></div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4613727015" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Girl on a cloud t-shirt" src="https://i.etsystatic.com/69044485/r/il/e78001/8876718269/il_600x600.8876718269_6a27.jpg"><div class="meta"><div class="name">Girl on a Cloud</div><div class="row"><span class="kind">Tee</span><span class="price">$24</span></div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4613728303" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Girl on a cloud hoodie" src="https://i.etsystatic.com/69044485/r/il/c16226/8828924622/il_600x600.8828924622_azat.jpg"><div class="meta"><div class="name">Girl on a Cloud</div><div class="row"><span class="kind">Hoodie</span><span class="price">$44</span></div></div></a>
+<a class="card" href="https://www.etsy.com/listing/4613726293" rel="noopener"><span class="heart" aria-hidden="true">&#9829;</span><img loading="lazy" alt="Striped sleepy dog t-shirt" src="https://i.etsystatic.com/69044485/r/il/193c95/8876712829/il_600x600.8876712829_6mkn.jpg"><div class="meta"><div class="name">Striped Sleepy Dog</div><div class="row"><span class="kind">Tee</span><span class="price">$24</span></div></div></a>
 </div></div></section>
 <section class="story" id="story"><div class="wrap"><span class="pill">Our story</span>
 <h2>One artist, original drawings</h2>
+<svg class="squig" width="150" height="20" viewBox="0 0 150 20" aria-hidden="true"><path d="M4 10 Q 20 -2 36 10 T 68 10 T 100 10 T 132 10" fill="none" stroke="#ff8fb1" stroke-width="5" stroke-linecap="round"/></svg>
 <p>Raya's Canvas Studio is a small family shop built around one artist's original drawings. Each design starts as a hand drawing, then is printed on demand on soft tees and hoodies.</p>
 <p>New designs drop as they get finished, so check back.</p></div></section>
 <section id="how"><div class="wrap">
 <h2>How it works</h2>
 <div class="how">
-<div><b>Made to order</b>Everything is printed after you buy, just for you.</div>
-<div><b>Printed and shipped by Printful</b>Our print partner prints each item and ships it straight to you.</div>
-<div><b>Checkout on Etsy</b>You buy through Etsy, so payment, order tracking and messages all live there.</div>
+<div><span class="num">1</span><b>Made to order</b>Everything is printed after you buy, just for you.</div>
+<div><span class="num">2</span><b>Printed and shipped by Printful</b>Our print partner prints each item and ships it straight to you.</div>
+<div><span class="num">3</span><b>Checkout on Etsy</b>You buy through Etsy, so payment, order tracking and messages all live there.</div>
 </div></div></section>
 <section class="cta"><div class="wrap">
-<h2>Ready to take a look?</h2>
+<h2>Ready to take a look? &#10024;</h2>
 <p class="sub">See every design, sizes and colors on Etsy.</p>
-<a class="btn" href="https://www.etsy.com/shop/RayasCanvasStudio" rel="noopener">Visit the Etsy shop</a>
+<a class="btn" href="https://www.etsy.com/shop/RayasCanvasStudio" rel="noopener">Visit the Etsy shop &rarr;</a>
 </div></section>
-<footer><p>&copy; Raya's Canvas Studio. All artwork is original. Sold through <a href="https://www.etsy.com/shop/RayasCanvasStudio" rel="noopener">Etsy</a>.</p></footer>
+<footer><p>Made with <span class="heart">&#9829;</span> by a small family shop. All artwork is original. Sold through <a href="https://www.etsy.com/shop/RayasCanvasStudio" rel="noopener">Etsy</a>.</p></footer>
 </body>
 </html>
